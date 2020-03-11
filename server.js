@@ -27,13 +27,28 @@ function askQuestion() {
                     message: "What would you like to do",
                     name: "userChoice",
                     type: "list",
-                    choices: ["View All Employees", "View All Employees by Department", "View all Employees by Manager", "Add Employee", "Remove Employee", "Update Employee Role", "Update Employee Manager", "view All Roles"]
+                    choices: ["View All Employees", "View All Departments", "View All Roles", "Add Employees", "Add Departments", "Add Roles", "Update Employee Roles", "EXIT"]
                 }
             ]).then(function (userAnswer) {
                 if (userAnswer.userChoice === "View All Employees") {
-                viewEmployee();
-                }
-            })
+                    viewEmployees();
+                } else if (userAnswer.userChoice === "View All Departments") {
+                    viewDepartments();
+                } else if (userAnswer.userChoice === "View All Roles") {
+                    viewRoles();
+                } else if(userAnswer.userChoice === "Add Employees") {
+                    addEmployees();
+                } else if(userAnswer.userChoice === "Add Departments") {
+                    addDepartments();
+                } else if(userAnswer.userChoice === "Add Roles") {
+                    addRoles();
+                } else if(userAnswer.userChoice === "Update Employee Roles") {
+                    updateRoles();
+                } 
+                
+
+            });
+
 
 
     }

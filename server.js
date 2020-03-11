@@ -16,6 +16,8 @@ connection.connect(function (err) {
     askQuestion();
 });
 
+const question = [];
+
 let listQuestions = false
 function askQuestion() {
     if (listQuestions === false) {
@@ -23,11 +25,15 @@ function askQuestion() {
             .prompt([
                 {
                     message: "What would you like to do",
-                    name: "initialprompt",
+                    name: "userChoice",
                     type: "list",
                     choices: ["View All Employees", "View All Employees by Department", "View all Employees by Manager", "Add Employee", "Remove Employee", "Update Employee Role", "Update Employee Manager", "view All Roles"]
                 }
-            ]);
+            ]).then(function (userAnswer) {
+                if (userAnswer.userChoice === "View All Employees") {
+                viewEmployee();
+                }
+            })
 
 
     }
